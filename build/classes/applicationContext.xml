@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+	<beans xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   		xmlns:p="http://www.springframework.org/schema/p"
+    	xmlns:aop="http://www.springframework.org/schema/aop"
+    	xmlns:tx="http://www.springframework.org/schema/tx"
+    	xmlns:context="http://www.springframework.org/schema/context"
+    	xmlns:jee="http://www.springframework.org/schema/jee"
+    	xmlns:mvc="http://www.springframework.org/schema/mvc"
+    	xsi:schemaLocation="
+        	http://www.springframework.org/schema/beans
+        	http://www.springframework.org/schema/beans/spring-beans.xsd
+        	http://www.springframework.org/schema/context
+        	http://www.springframework.org/schema/context/spring-context.xsd
+        	http://www.springframework.org/schema/mvc
+        	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        	http://www.springframework.org/schema/aop
+			http://www.springframework.org/schema/aop/spring-aop.xsd
+			http://www.springframework.org/schema/jee 
+			http://www.springframework.org/schema/jee/spring-jee.xsd
+			http://www.springframework.org/schema/tx
+        	http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+		<!-- 自动扫描，支持注解方式，自动装配bean -->	
+		<context:component-scan base-package="org.lanqiao.dao"/>
+		<context:component-scan base-package="org.lanqiao.service"/>
+		<!-- 配置数据源 -->
+		<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+			<property name="url" value="jdbc:mysql://localhost:3306/test" />
+			<property name="username" value="root" />
+			<property name="password" value="123" />
+		</bean>
+		<!-- 创建SqlSessionFactory，同时指定数据源 -->
+		<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    		<property name="dataSource" ref="dataSource"/><!-- 注入数据库连接池 -->
+    		<!-- 自动扫描mappers.xml文件 -->
+    		<property name="mapperLocations" value="classpath:org/lanqiao/mappers/*.xml"/>
+    		<!-- mybatis配置文件 -->
+    		<property name="configLocation" value="classpath:mybatis-config.xml"></property>
+		</bean>
+		<!-- 配置mybaits的sqlSessionFactory -->
+		<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+  			<property name="basePackage" value="org.lanqiao.dao" />
+  			<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+		</bean>
+		<!-- 配置事物管理器 -->	
+		<bean id="transactionManager" 
+			class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+			<property name="dataSource" ref="dataSource"/>
+		</bean>
+		<!--  声明式容器事务管理 ,transaction-manager指定事务管理器为transactionManager -->
+    	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	        <tx:attributes>
+	        	<!-- 方法对应的传播属性 -->
+	            <tx:method name="insert*" propagation="REQUIRED" />
+	            <tx:method name="update*" propagation="REQUIRED" />
+	            <tx:method name="edit*" propagation="REQUIRED" />
+	            <tx:method name="save*" propagation="REQUIRED" />
+	            <tx:method name="add*" propagation="REQUIRED" />
+	            <tx:method name="new*" propagation="REQUIRED" />
+	            <tx:method name="set*" propagation="REQUIRED" />
+	            <tx:method name="remove*" propagation="REQUIRED" />
+	            <tx:method name="delete*" propagation="REQUIRED" />
+	            <tx:method name="get*" propagation="REQUIRED" read-only="true"/> <!-- 只读模式 -->
+	            <tx:method name="find*" propagation="REQUIRED" read-only="true"/>
+	            <tx:method name="load*" propagation="REQUIRED" read-only="true"/>
+	            <tx:method name="*" read-only="true" />
+	        </tx:attributes>
+    	</tx:advice>
+    <!-- 配置事物切面 -->	
+    <aop:config expose-proxy="true">
+        <!-- 只对业务逻辑层实施事务 -->
+        <aop:pointcut id="serviceOperation" expression="execution(* org.lanqiao.service.*.*(..))" />
+        <!-- Advisor定义，切入点和通知分别为txPointcut、txAdvice -->
+        <aop:advisor pointcut-ref="serviceOperation" advice-ref="txAdvice"/>
+    </aop:config>
+</beans>
