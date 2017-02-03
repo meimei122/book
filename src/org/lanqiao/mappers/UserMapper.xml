@@ -11,4 +11,8 @@
 	<select id="login" parameterType="User" resultMap="UserResultMap">
 		select * from user where uname=#{uname} and psw=#{psw}
 	</select>
+	
+	<select id="register" parameterType="User" resultMap="UserResultMap">
+		add * from user where uname=#{uname} and psw=#{psw}
+	</select>
 </mapper>
