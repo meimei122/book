@@ -10,6 +10,7 @@ import org.lanqiao.entity.User;
 import org.lanqiao.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/user")
@@ -19,6 +20,7 @@ public class UserController {
 	private UserService userService;//service层的对象
 	
 	@RequestMapping("/login")
+	@ResponseBody
 	public String login(User user,HttpServletRequest request){
 		User resultUser = userService.login(user);
 		if(resultUser==null){

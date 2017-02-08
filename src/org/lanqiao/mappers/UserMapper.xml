@@ -12,12 +12,12 @@
 		select * from user where uname=#{uname} and psw=#{psw}
 	</select>
 	
-	<update id="updateStudent" parameterType="StudentEntity">  
+	<!-- <update id="updateStudent" parameterType="StudentEntity">  
 	    UPDATE STUDENT_TBL  
 	       SET STUDENT_TBL.STUDENT_NAME = #{studentName},  
 	           STUDENT_TBL.STUDENT_SEX = #{studentSex},  
 	           STUDENT_TBL.STUDENT_BIRTHDAY = #{studentBirthday},  
 	           STUDENT_TBL.CLASS_ID = #{classEntity.classID}  
 	     WHERE STUDENT_TBL.STUDENT_ID = #{studentID};  
-	</update>  
+	</update>   -->
 </mapper>
