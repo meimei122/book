@@ -34,7 +34,7 @@
 			</div>
 		</div>
 	</div>
-	<button type="submit"  id="login" class="loginIn" >Sing&nbsp;&nbsp;In</button>
+	<button type="submit"  id="login" class="loginIn" >Sign&nbsp;&nbsp;In</button>
 </form>
 <canvas id="canv"></canvas>
 
