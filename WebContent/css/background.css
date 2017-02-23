@@ -1,0 +1,104 @@
+html {
+  height: 100%;
+  background-image: -webkit-radial-gradient(ellipse farthest-corner at center top, #000d4d 0%, #000105 100%);
+  background-image: radial-gradient(ellipse farthest-corner at center top, #000d4d 0%, #000105 100%);
+  cursor: move;
+}
+
+body {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* Demo Buttons Style */
+.codrops-demos {
+	font-size: 0.8em;
+	text-align:center;
+	position:absolute;
+	z-index:99;
+	width:96%;
+}
+
+.codrops-demos a {
+	display: inline-block;
+	margin: 0.35em 0.1em;
+	padding: 0.5em 1.2em;
+	outline: none;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+	border-radius: 2px;
+	font-size: 110%;
+	border: 2px solid transparent;
+	color:#fff;
+}
+.codrops-demos a:hover,
+.codrops-demos a.current-demo {
+	border-color: #383a3c;
+}
+.loginForm{
+	width: 100%; 
+	height: 100%; 
+	background-color: rgba(0, 0, 0, 0); 
+	z-index: 99; 
+	position: absolute;
+}
+.login{
+	width: 30%; 
+	height: 350px;
+  margin-left: 35%;
+  margin-top: 10%;
+	background-color: rgba(0, 0, 0, 0.25); 
+	z-index: 99; 
+	position: absolute;
+	border-radius: 5px;
+	border:1px solid rgba(255, 255, 255, 0.25);
+	box-shadow: 3px 3px 10px #9edeff;
+}
+/*用户名*/
+.user{
+	margin-left: 8%;
+  margin-top: 15%;
+  width: 80%;
+}
+.user input{
+	  width: 100%;
+    height: 50px;
+    color: #F5F5F5;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.25); 
+    border:1px solid rgba(255, 255, 255, 0.25);
+}
+.user span{
+	background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+/*密码*/
+.pass{
+	margin-left: 8%;
+  margin-top: 6%;
+  width: 80%;
+}
+.pass input{
+	width: 100%;
+  height: 50px;
+  color: #F5F5F5;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.25); 
+    border:1px solid rgba(255, 255, 255, 0.25);
+}
+.pass span{
+	background-color: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+/*登录按钮*/
+.loginIn{
+		margin-left: 8%;
+		margin-top: 10%;
+	  width: 80%;
+    height: 50px;
+    font-family: 微软雅黑;
+    font-size: 22px;
+}

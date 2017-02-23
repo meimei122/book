@@ -1,86 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<<html>
+<html>
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>图书管理系统登录界面</title>
-
-<link rel="stylesheet" type="text/css" href="css/styles.css">
-<script type="text/javascript">
-function signIn(){
-	$.ajax({
-		url: url,
-        type: 'GET',
-        data: 'json',
-        success: function (msg) {
-        	
-        }
-	});
-}
-function singUp(){
-	
-}
-</script>
+<meta charset="utf-8">
+<title>图书管理系统</title>
+<link rel="stylesheet" href="css/background.css" />
+<link rel="stylesheet" href="css/bootstrap-theme.css" />
+<link rel="stylesheet" href="css/bootstrap.css" />
+<link rel="stylesheet" href="css/bootstrapValidator.min.css" />
+<link rel="stylesheet" href="css/login.css" />
+<script type="text/javascript" src="js/jquery-1.9.1.js" ></script>
+<script type="text/javascript" src="js/bootstrap-3.3.5.min.js" ></script>
+<script type="text/javascript" src="js/bootstrapValidator.min.js" ></script>
+<script type="text/javascript" src="js/login.js" ></script>
+<script type="text/javascript" src="js/background.js" ></script>
 </head>
 <body>
-<div class="jq22-container" style="padding-top:10px">
-	<div class="login-wrap">
-		<div class="login-html">
-			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
-			<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
-			<div class="login-form">
-				<div class="sign-in-htm">
-					<div class="group">
-						<label for="user" class="label">Username</label>
-						<input id="user" type="text" class="input">
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Password</label>
-						<input id="pass" type="password" class="input" data-type="password">
-					</div>
-					<div class="group">
-						<input id="check" type="checkbox" class="check" checked>
-						<label for="check"><span class="icon"></span> Keep me Signed in</label>
-					</div>
-					<div class="group">
-						<input type="button" class="button" value="Sign In" onclick="signIn()">
-					</div>
-					<div class="hr"></div>
-					<!-- <div class="foot-lnk">
-						<a href="#forgot">Forgot Password?</a>
-					</div> -->
-				</div>
-				<div class="sign-up-htm">
-					<div class="group">
-						<label for="user" class="label">Username</label>
-						<input id="user" type="text" class="input">
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Password</label>
-						<input id="pass" type="password" class="input" data-type="password">
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Repeat Password</label>
-						<input id="pass" type="password" class="input" data-type="password">
-					</div>
-					<div class="group">
-						<label for="pass" class="label">Email Address</label>
-						<input id="pass" type="text" class="input">
-					</div>
-					<div class="group">
-						<input type="buttom" class="button" value="Sign Up" onclick="singUp()">
-					</div>
-					<div class="hr"></div>
-					<div class="foot-lnk">
-						<label for="tab-1">Already Member?</a>
-					</div>
-				</div>
+<form id="loginForm" class="login form-horizontal" action="" method="post">
+	<div class="user"> 
+		<div class=" form-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+			<div class="input-group">
+				<input type="text"  id="username" class="form-control" name="username"  placeholder="username"/>
 			</div>
 		</div>
 	</div>
-</div>
+	<div class="pass">
+		<div class="form-group">
+			<span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+			<div class="input-group">
+				<input type="password"  id="password" class="form-control" name="password" placeholder="password"/>
+			</div>
+		</div>
+	</div>
+	<button type="submit"  id="login" class="loginIn" >Sing&nbsp;&nbsp;In</button>
+</form>
+<canvas id="canv"></canvas>
+
 </body>
 </html>

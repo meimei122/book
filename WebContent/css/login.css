@@ -1,0 +1,111 @@
+@charset "utf-8";
+body {
+	font-family: 微软雅黑;
+	color: #fff;
+	font-weight: normal;
+	height: 100%;
+	overflow: hidden;
+}
+/*登录框样式*/
+#loginForm,
+#loginForm::before,
+#loginForm::after {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 15px;
+	right: 0;
+}
+#loginForm {
+	background-color: rgba(0, 0, 0, 0.25);
+	width: 547px;
+    height: 327px;
+	color: #9edeff;
+	margin-top: 12%;
+	margin-left: 28%;
+	border: 5px solid rgba(255, 255, 255, 0.25);
+	border-radius: 10px;
+	box-shadow: inset 0 0 0 1px #9edeff;
+	transition: 1s all ease;
+}
+#loginForm::before,
+#loginForm::after {
+	content: '';
+	z-index: -1;
+	margin: -5%;
+	box-shadow: inset 0 0 0 2px;
+	animation: clipMe 8s linear infinite;
+}
+#loginForm::before {
+	animation-delay: -4s;
+}
+@keyframes clipMe {
+	0%,
+	100% {
+		clip: rect(0px, 575.0px, 0px, 0px);
+	}
+	25% {
+		clip: rect(0px, 0px, 370.0px, 0px);
+	}
+	50% {
+		clip: rect(370.0px, 575.0px, 370.0px, 0px);
+	}
+	75% {
+		clip: rect(0px, 575.0px, 370.0px, 575.0px);
+	}
+}
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+/*用户名输入框*/
+.user {
+	height: 112px;
+	margin-left: 18%;
+	margin-top: 6%;
+}
+/*密码输入框*/
+.pass {
+	height: 112px;
+	margin-left: 18%;
+	margin-top: -2%;
+}
+/*输入框标签*/
+.login input {
+	height: 56px;
+	font-size: 23px;
+	padding: 0 10px;
+	border-radius: 0 10px 10px 0 !important;
+	color: #EEEEEE;
+}
+/*span标签*/
+.login span{
+	border-radius: 10px 0 0 10px ;
+	background-color: #003399;
+}
+/*登录按钮*/
+.loginIn {
+	margin-left: 83px;
+	margin-top: -3%;
+	width: 72%;
+	height: 67px;
+	border-radius: 10px;
+	font-size: 28px;
+	color: #F0F8FF;
+    background-color: #003399;
+}
+/*图标标签*/
+/*.info{
+    width: 434px;
+    height: 35px;
+    margin-top: 25px;
+    margin-left: 185px;
+    font-size: 14px;
+}*/
+.form-control-feedback .glyphicon .glyphicon-remove{
+	top: 15px;
+}
+    margin-left: 43px;
+    font-size: 15px;
+    color: red;

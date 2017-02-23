@@ -20,18 +20,15 @@ public class UserController {
 	private UserService userService;//service层的对象
 	
 	@RequestMapping("/login")
-	@ResponseBody
 	public String login(User user,HttpServletRequest request){
 		User resultUser = userService.login(user);
+		String msg;
 		if(resultUser==null){
-			request.setAttribute("user", user);
-			request.setAttribute("errorMessage", "用户名或密码错误");
-			return "login";
+			msg = "true";
+			return msg;
 		}
 		else{
-			HttpSession session = request.getSession();
-			session.setAttribute("curUser", resultUser);
-			return "success";
+			return "false";
 		}
 		
 	}
