@@ -1,0 +1,116 @@
+@CHARSET "UTF-8";
+/* 清除浏览器默认样式 */
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+fieldset, lengend, button, input, textarea, /* form elements 表单元素 */
+th, td { /* table elements 表格元素 */
+    margin: 0;
+    padding: 0;
+}
+body {
+	font-family: 微软雅黑,Tahoma, Geneva, sans-serif, 宋体;
+	font-size: 14px !important;
+	color: #fff;
+	font-weight: normal;
+	height: 100%;
+}
+ul li{
+	list-style:none ;
+}
+.index-south-panel {
+	height: 35px;
+	line-height: 28px;
+	text-align: center;
+}
+
+.index-west-panel {
+	width: 180px;
+}
+
+/* 一级菜单开始 */
+.first-menu {
+	height: 100px;
+	text-align: center;
+	margin: 0 auto;
+}
+
+.first-item {
+	text-align: center;
+	text-decoration: none;
+	border: 3px solid #ccdeff;
+	height: 80px;
+	line-height: 80px;
+	padding: 20px;
+	font-size: 20px !important;
+	margin-top: 2em;
+}
+
+.first-menu a:hover {
+	background: #ccdeff;
+} 
+
+/* 一级菜单结束 */
+
+/* 二级菜单开始 */
+.second-menu {
+	position: fixed;
+	width: 0px;
+	overflow: visible;
+	top:120px;
+}
+
+.second-menu li {
+	display: inline-block;
+	float: right;
+	clear: both;
+	cursor:pointer;
+}
+
+.card {
+	float: right;
+	position: relative;
+	left: 0px;
+	padding: 16px 32px 16px 64px;
+	margin: 8px;
+	x-box-shadow: 0 0 8px 0px rgba(0, 0, 0, 0.5);
+	box-shadow: 8px 0 8px -8px rgba(0, 0, 0, 0.5);
+	background: #fff;
+	transition: all 0.3s ease-in-out 0.1s;
+}
+
+.card:hover {
+	position: relative;
+	left: 100%;
+	margin-left: -64px;
+	box-shadow: 0 -8px 8px -8px rgba(0, 0, 0, 0.5),
+    0 8px 8px -8px rgba(0, 0, 0, 0.5);
+	transition: all 0.3s ease-in-out;
+}
+
+.card-active{
+	position: relative;
+	left: 100%;
+	margin-left: -64px;
+	
+}
+
+.card-content {
+	color: #fff;
+	font-size: 20px;
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+.bg-01 {
+	background: #539770;
+}
+
+.bg-03 {
+	background: #8DC2BC;
+}
+
+.bg-02 {
+	background: #EDD6B4;
+}
+/* 二级菜单结束 */
