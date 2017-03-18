@@ -13,7 +13,7 @@ public class LoginControl {
 	 */
 	@RequestMapping(method = RequestMethod.GET)
 	public String signIn(){
-		return "login";
+		return "index";
 	}
 
 }
